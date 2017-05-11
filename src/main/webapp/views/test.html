@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="../plugins/angular.min.js"></script>
+</head>
+<body>
+
+<!--<div ng-app="">
+    <p>名字 : <input type="text" ng-model="name"></p>
+    <h1>Hello {{name}}</h1>
+</div>-->
+
+<!--<div ng-app="" ng-init="firstName='John'">
+
+    <p>姓名为 <span ng-bind="firstName"></span></p>
+
+</div>-->
+<!--<div ng-app="">
+    <p>我的第一个表达式： {{ 5 + 5 }}</p>
+</div>-->
+
+<!--<div ng-app="myApp" ng-controller="myCtrl">
+
+    名: <input type="text" ng-model="firstName"><br>
+    姓: <input type="text" ng-model="lastName"><br>
+    <br>
+    姓名: {{firstName + " " + lastName}}
+
+</div>-->
+
+<!--<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.firstName= "John";
+        $scope.lastName= "Doe";
+    });
+</script>-->
+
+<!--<div ng-app="" ng-init="names=['Jani','Hege','Kai']">
+    <p>使用 ng-repeat 来循环数组</p>
+    <ul>
+        <li ng-repeat="x in names">
+            {{ x }}
+        </li>
+    </ul>
+</div>-->
+
+<!--<div ng-app="" ng-init="names=[
+{name:'Jani',country:'Norway'},
+{name:'Hege',country:'Sweden'},
+{name:'Kai',country:'Denmark'}]">
+
+    <p>循环对象：</p>
+    <ul>
+        <li ng-repeat="x    in names">
+            {{ x.name + ', ' + x.country }}
+        </li>
+    </ul>
+
+</div>-->
+<!--<body ng-app="myApp">
+
+<runoob-directive></runoob-directive>
+
+<script>
+    var app = angular.module("myApp", []);
+    app.directive("runoobDirective", function() {
+        return {
+            template : "<h1>自定义指令!</h1>"
+        };
+    });
+</script>-->
+<!--<form ng-app="" name="myForm">
+    Email:
+    <input type="email" name="myAddress" ng-model="text">
+    <span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱地址</span>
+</form>-->
+<!--<form ng-app="" name="myForm" ng-init="myText = 'test@runoob.com'">
+    Email:
+    <input type="email" name="myAddress" ng-model="myText" required></p>
+    <h1>状态</h1>
+    {{myForm.myAddress.$valid}}
+    {{myForm.myAddress.$dirty}}
+    {{myForm.myAddress.$touched}}
+</form>-->
+
+<!--<style>-->
+    <!--input.ng-invalid {-->
+        <!--background-color: lightblue;-->
+    <!--}-->
+<!--</style>-->
+<!--<body>-->
+
+<!--<form ng-app="" name="myForm">-->
+    <!--输入你的名字:-->
+    <!--<input name="myAddress" ng-model="text" required>-->
+<!--</form>-->
+
+<!--<div ng-app="myApp" ng-controller="myCtrl">-->
+    <!--<input ng-model="name">-->
+    <!--<h1>{{greeting}}</h1>-->
+    <!--<button ng-click='sayHello()'>点我</button>-->
+    <!--{{ "lower cap string" | uppercase }}-->
+<!--</div>-->
+
+<!--<script>-->
+    <!--var app = angular.module('myApp', []);-->
+    <!--app.controller('myCtrl', function($scope) {-->
+        <!--$scope.name = "Runoob";-->
+        <!--$scope.sayHello = function() {-->
+            <!--$scope.greeting = 'Hello ' + $scope.name + '!';-->
+        <!--};-->
+    <!--});-->
+<!--</script>-->
+<!--<div ng-app="myApp" ng-controller="myCtrl">
+
+    <p>两秒后显示信息:</p>
+
+    <h1>{{myHeader}}</h1>
+
+</div>
+
+<p>$timeout 访问在规定的毫秒数后执行指定函数。</p>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope, $timeout) {
+        $scope.myHeader = "Hello World!";
+        $timeout(function () {
+            $scope.myHeader = "How are you today?";
+        }, 2000);
+    });
+</script>-->
+<!--<div ng-app="myApp" ng-controller="myCtrl">
+
+    <p>现在时间是:</p>
+
+    <h1>{{theTime}}</h1>
+
+</div>
+
+<p>$interval 访问在指定的周期(以毫秒计)来调用函数或计算表达式。</p>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope, $interval) {
+        $scope.theTime = new Date().toLocaleTimeString();
+        $interval(function () {
+            $scope.theTime = new Date().toLocaleTimeString();
+        }, 1000);
+    });
+</script>-->
+
+<div ng-app="myApp" ng-controller="siteCtrl">
+
+    <ul>
+        <li ng-repeat="x in names">
+            {{ x.Name + ', ' + x.Country }}
+        </li>
+    </ul>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('siteCtrl', function($scope, $http) {
+        $http.get("http://www.runoob.com/try/angularjs/data/sites.php")
+            .then(function (response) {$scope.names = response.data.sites;});
+    });
+</script>
+</body>
+</html>
