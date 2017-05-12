@@ -6,4 +6,5 @@ package com.chenlong.lambda;
 public class User {
   private Long id;
   private Integer age;
+
 }
